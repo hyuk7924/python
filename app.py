@@ -681,30 +681,77 @@ houses.append(sp)
 #          출력 메시지 : "재고가 소진되어 더 이상 주문을 받지 않습니다."
 
 
+#
+# class SoldOutError(Exception):
+#     pass
+#
+# chicken = 10
+# waiting = 1 # 홀 안에는 현재 만석, 대기번호 1부터 시작
+#
+# while(True):
+#     try:
+#         print("[남은 치킨 : {0}]".format(chicken))
+#         order = int(input("치킨 몇 마리 주문하시겠습니까?"))
+#         if order > chicken:
+#             print("재료가 부족합니다.")
+#         elif order <=0:
+#             raise ValueError
+#         else:
+#             print("[대기번호 {0}] {1} 마리 주문이 완료되었습니다."\
+#                 .format(waiting, order))
+#             waiting += 1
+#             chicken -= order
+#         if chicken == 0:
+#             raise SoldOutError
+#     except ValueError:
+#         print("잘못된 값을 입력하였습니다.")
+#     except SoldOutError:
+#         print("재고가 소진되어 더이상 주문을 받지 않습니다.")
+#         break
 
-class SoldOutError(Exception):
-    pass
+#
+# import theater_module
+# theater_module.price(3)
+# theater_module.price_morning(4)
+# theater_module.price_soldier(5)
 
-chicken = 10
-waiting = 1 # 홀 안에는 현재 만석, 대기번호 1부터 시작
+# import theater_module as mv # 모듈명이 길 때 줄여서 사용 가능
+#
+# mv.price_soldier(2)
+#
+# from theater_module import  *
+#
+# price_soldier(4)
+#
+# from theater_module import price, price_morning  # 필요한 것만 사용 선택 가능
+#
+# price(4)
 
-while(True):
-    try:
-        print("[남은 치킨 : {0}]".format(chicken))
-        order = int(input("치킨 몇 마리 주문하시겠습니까?"))
-        if order > chicken:
-            print("재료가 부족합니다.")
-        elif order <=0:
-            raise ValueError
-        else:
-            print("[대기번호 {0}] {1} 마리 주문이 완료되었습니다."\
-                .format(waiting, order))
-            waiting += 1
-            chicken -= order
-        if chicken == 0:
-            raise SoldOutError
-    except ValueError:
-        print("잘못된 값을 입력하였습니다.")
-    except SoldOutError:
-        print("재고가 소진되어 더이상 주문을 받지 않습니다.")
-        break
+# from  theater_module import price_soldier as ps
+# ps(4)
+
+## 패키지
+#
+# import travel.thiland # import .뒤에는 모듈이나 패키지만 가능하다
+# trip_to = travel.thiland.ThailandPackage()
+# trip_to.detail()
+#
+# from travel.thiland import ThailandPackage
+# trip_to = ThailandPackage()
+# trip_to.detail()
+#
+# from travel import vetnam
+# trip_to = vetnam.VietnamPackage()
+# trip_to.detail()
+
+# __all __
+#
+from travel import *
+#
+# trip_to = thailand.ThailandPackage()
+# trip_to.detail()
+
+import inspect
+import random
+print(inspect.getfile(random))
+print(inspect.getfile(thailand))
